@@ -1,0 +1,186 @@
+html,body{
+    height: 100%;
+    background-color: #f1f1f1 !important;
+}
+.sign{
+    /*定位属性放在最上面*/
+    /*先写盒子模型的*/
+    height: 100%;
+    /*然后写文本*/
+    font-size: 14px;
+    text-align: center;
+    /*最后写用户信息内容*/
+}
+.sign-up-btn{
+    margin-top: 20px;
+}
+.logo{
+    position: absolute;
+    top:50px;
+    left:50px;
+}
+.logo img{
+    width: 150px;
+}
+.main{
+    width: 400px;
+    margin: 100px auto 0;
+    padding: 50px 50px 30px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0  8px 0 rgba(0,0,0,.1);
+    display: inline-block;
+}
+.main .title{
+    margin: 0 auto 50px;
+    padding: 10px;
+    color: #939393;
+}
+.main .title h4{
+    margin: 0;
+    font-size: 18px;
+}
+.main .title h4 a,.main .title h4 b{
+    padding: 10px;
+}
+ .main .title h4 a.active{
+     color:#ea6f5a !important;
+     border-bottom: 2px solid #ea6f5a;
+     font-weight: 700;
+ }
+.main .title h4 a:hover{
+    border-bottom: 2px solid #ea6f5a;
+}
+.main form{
+    margin: 0 0 30px;
+    color:#969696;
+}
+.main form .input-prepend{
+    position: relative;
+    width: 100%;
+}
+.main form .input-prepend input{
+    width: 100%;
+    height: 50px;
+    padding: 4px 12px 4px 35px;
+    border:1px solid #c8c8c8;
+    background-color: rgb(248,248,248);
+    border-bottom: none;
+}
+.main .top-radius{
+    border-radius:4px 4px 0 0;
+}
+.main form input.bottom-radius{
+    border-radius: 0 0 4px 4px;
+    border-bottom: 1px solid #c8c8c8;
+}
+.main form .input-prepend i {
+    position: absolute;
+    color:#969696;
+    top:20px;
+    left:10px;
+    font-size: 18px;
+}
+.main form .remember{
+    float:left;
+    margin: 17px 0;
+}
+.main form .help{
+    float:right;
+    margin: 17px 0;
+}
+.main form>input{
+    width: 100%;
+    height: 40px;
+    display: block;
+    border-radius: 20px;
+}
+.main .more-sign p{
+    position: relative;
+    font-size: 14px;
+    color:#b8b8b8;
+    margin-bottom: 20px;
+}
+.main .more-sign p:before{
+    content:'';
+    width: 60px;
+    border-bottom:1px solid #b8b8b8;
+    position: absolute;
+    top:10px;
+    left: 30px;
+}
+.main .more-sign p:after{
+    content:'';
+    width: 60px;
+    border-bottom:1px solid #b8b8b8;
+    position: absolute;
+    top:10px;
+    right: 30px;
+}
+.main .more-sign ul{
+    margin-bottom: 20px;
+}
+.main .more-sign ul li{
+    display: inline-block;
+    border-radius: 50%;
+    color:white;
+    margin: 0 7px;
+}
+.main .more-sign ul li:nth-child(1){
+    background-color: #e05244;
+}
+.main .more-sign ul li:nth-child(2){
+    background-color: #00bb29;
+}
+.main .more-sign ul li:nth-child(3){
+    background-color: #498ad5;
+}
+.main .more-sign ul li:nth-child(4){
+    background-color: rgb(248,248,248);
+    color: #939393;
+}
+.main .more-sign ul li a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+.main .more-sign ul li a i{
+    font-size: 25px;
+    line-height: 50px;
+}
+.main form p.sign-up-msg{
+    margin: 15px 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    color:#969696;
+}
+.main form .ssm{
+    position: relative;
+}
+.main form .input-prepend a.send-ssm{
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 35px;
+    top:8px;
+    right: 9px;
+    color:#fff !important;
+    border-radius: 20px;
+    opacity: 0.7;
+    font-size: 14px;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .logo{
+        display: none;
+    }
+    body{
+        background: #fff !important;
+    }
+    .main{
+        box-shadow: none;
+        margin: 0 auto;
+    }
+}
