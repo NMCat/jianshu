@@ -1,5 +1,6 @@
 <template>
     <div>
+        <my-header></my-header>
         <b-container>
             <b-row>
                 <b-col cols="9">我占九个</b-col>
@@ -8,13 +9,14 @@
         </b-container>
     </div>
 </template>
-
 <script>
+    import myHeader from '../components/myHeader'
     export default {
-
+      components:{
+          myHeader
+      }
     }
 </script>
-
-<style scoped>
+<style>
 
 </style>
