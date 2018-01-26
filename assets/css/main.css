@@ -34,5 +34,14 @@ ul,ol,dl {
     margin:0 !important;
     padding:0 !important;
 }
-
+@media (min-width: 992px){
+    .my-container {
+        width: 960px!important;
+    }
+}
+@media (max-width: 1080px){
+    .my-container {
+        width: 750px!important;
+    }
+}
 
