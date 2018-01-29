@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="overflow: hidden">
         <nav class="navbar navbar-default nav-fixed-top">
             <div class="width-limit">
                 <!-- logo -->
@@ -11,12 +11,11 @@
                     <i class="fa fa-edit"></i>
                     写文章
                 </nuxt-link>
-                <!--登录和注册按钮-->
+                <!--登录和注册的按钮-->
                 <nuxt-link to="/sign-up" class="btn sign-up">注册</nuxt-link>
-                <nuxt-link to="/sign-in" class="btn sign-in">登录</nuxt-link>
-
+                <nuxt-link to="/sign-in"  class="btn sign-in">登录</nuxt-link>
                 <!--如果用户登录，那么显示用户头像-->
-                <div style="display:none;" class="user" @mouseover="userShow=true" @mouseleave="userShow=false">
+                <div style="display: none" class="user" @mouseover="userShow=true" @mouseleave="userShow=false">
                     <div class="drop-down">
                         <nuxt-link class="avatar" to="/users">
                             <img src="../assets/img/1.jpg" alt="">
@@ -38,7 +37,7 @@
                             </li>
                             <li>
                                 <nuxt-link to="/">
-                                    <i class="fa fa-heart"></i>
+                                    <i style="font-size: 16px;" class="fa fa-heart"></i>
                                     喜欢的文章
                                 </nuxt-link>
                             </li>
@@ -87,7 +86,7 @@
                                   </li>
                                   <li>
                                       <nuxt-link to="/">
-                                          <i class="fa fa-envelope-o"></i>
+                                          <i class="fa fa-envelope-open-o"></i>
                                           简信
                                       </nuxt-link>
                                   </li>
@@ -113,8 +112,8 @@
                           </div>
                       </li>
                       <li class="search">
-                          <form action="" method="post">
-                              <input type="text" placeholder="搜索" @focus="bgShow=true" @blur="bgShow=false">
+                          <form method="post">
+                              <input type="text" placeholder="搜索" @blur="bgShow=false" @focus="bgShow=true">
                               <nuxt-link to="/search" class="search-btn" :class="{active:bgShow}">
                                   <i class="fa fa-search"></i>
                               </nuxt-link>
@@ -130,7 +129,7 @@
     export default {
         data(){
             return{
-             userShow:false,
+                userShow:false,
                 notifyShow:false,
                 bgShow:false
             }
@@ -156,17 +155,17 @@
         left: 0;
         z-index: 999;
     }
-    .width-limit{
+    nav .width-limit{
         min-width: 768px;
         width: 1440px;
         margin: 0 auto;
     }
-    .nav-logo{
+    nav .nav-logo{
         float: left;
         height: 56px;
         padding: 0;
     }
-    .nav-logo img{
+    nav .nav-logo img{
         height: 100%;
     }
     nav a.write-btn{
@@ -180,27 +179,30 @@
         color: #fff!important;
         border-radius: 20px;
     }
+    nav a.sign-in:focus{
+        box-shadow: none !important;
+    }
     nav a.sign-in{
-        float:right;
-        margin: 10px 6px 0 10px;
-        padding: 6px 12px;
+        float: right;
+        margin: 11px 6px 0 10px;
         line-height: 24px;
         font-size: 15px;
-        color:#969696 !important;
+        padding: 6px 12px;
+        color:#969696!important;
     }
     nav a.sign-up{
-        float:right;
+        float: right;
         width: 80px;
         height: 38px;
-        margin: 8px 6px 0 10px;
+        margin: 10px 6px 0 10px;
         line-height: 24px;
         font-size: 15px;
-        border: 1px solid #ea6f5a;
+        border:1px solid #ea6f5a;
         border-radius: 20px;
-        color:#ea6f5a !important;
+        color:#ea6f5a!important;
     }
     nav a.sign-up:hover{
-        background: rgb(254,247,246);
+        background:rgba(254,247,246,1);
     }
   nav .user{
       float:right;
@@ -216,7 +218,7 @@
         display: block;
         margin: 8px 28px 8px 20px;
     }
-    nav .user .avatar::before{
+    nav .user .avatar:before{
         content:'';
         position: absolute;
         top:18px;
@@ -234,7 +236,6 @@
     }
     nav .user .drop-menu{
         position: absolute;
-        z-index:9999;
         left: 0;
         min-width: 160px;
         box-shadow: 0 0 8px rgba(0,0,0,.1);
@@ -257,97 +258,50 @@
         color:#ea6f5a;
         font-size: 18px;
     }
+    nav .nav-list {
+        margin:0 -15px;
+        padding:0;
+    }
     nav .nav-list:after{
-        content:'';
+        content:"";
         height: 0;
         display: block;
         visibility: hidden;
-        clear: both;
+        clear:both;
     }
     nav .nav-list>li{
         float:left;
         margin-right: 5px;
     }
     nav .nav-list>li:hover{
-        background: #f5f5f5;
+        background-color: #f5f5f5;
+    }
+    nav .nav-list>li.active{
+        color:#ea6f5a;
+        background: #fff;
     }
     nav .nav-list>li>a{
         display: block;
         height: 55px;
         padding: 15px;
-        /*margin-right: 10px;*/
         font-size: 17px;
     }
     nav .nav-list>li>a>i{
         font-size: 20px;
         margin-right: 7px;
-        text-align: center;
         margin-top: 5px;
-    }
-    nav .nav-list>li.active{
-        color:#ea6f5a;
-        background: #fff;
-
-    }
-    nav .nav-list .search{
-        padding-left: 15px;
-    }
-    nav .nav-list .search:hover{
-        background: #fff;
-    }
-    nav .nav-list .search form{
-       margin-top: 9px;
-        position: relative;
-    }
-    nav .nav-list .search form .search-btn{
-        display: block;
-    }
-    nav .nav-list .search form .search-btn {
-        position: absolute;
-        right:10px;
-        top:4px;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        color:#969696 !important;
-    }
-    nav .nav-list .search form a.active{
-        background: #969696;
-        border-radius: 50%;
-        color:white !important;
-    }
-    nav .nav-list .search form .search-btn i {
-        font-size: 18px;
-        right:6px;
-        top:6px;
-    }
-    nav .nav-list .search form input{
-        width: 240px;
-        height: 38px;
-        border:none;
-        background: #eee;
-        border-radius: 20px;
-        padding: 0 30px 0 20px;
-        font-size: 15px;
-        transition:width 0.5s ease-in;
-    }
-    nav .nav-list .search form input:focus{
-        width: 320px;
-    }
-    nav .nav-list .search form a i{
-        position: absolute;
-        right:10px;
-        top:10px;
     }
     nav .nav-list .notify{
         position: relative;
     }
-    nav .nav-list .notify .drop-menu{
+    nav .notify .drop-menu{
         position: absolute;
+        z-index: 9999;
+        background-color: #fff;
         left: 0;
         min-width: 160px;
-        font-size: 15px;
         box-shadow: 0 0 8px rgba(0,0,0,.1);
+        font-size: 15px;
     }
     nav .notify .drop-menu ul{
         padding: 10px 0;
@@ -355,20 +309,66 @@
     }
 
     nav .notify .drop-menu ul li a{
-        padding: 9px;
-        height: 50px;
+        padding: 10px 20px;
         display: block;
-        font-size: 16px;
     }
     nav .notify .drop-menu ul li a:hover{
         background: #f5f5f5;
     }
     nav .notify .drop-menu ul li i{
-        margin-right: 18px;
+        margin-right: 15px;
         color:#ea6f5a;
         font-size: 18px;
     }
-    @media (max-width: 768px) {
+    nav .nav-list .search{
+        padding-left: 15px;
+    }
+    nav .nav-list .search:hover{
+        background-color: #fff;
+    }
+    nav .nav-list .search form{
+        margin-top: 9px;
+        position: relative;
+    }
+    nav .nav-list .search input{
+        width: 240px;
+        height: 38px;
+        border: none;
+        background: #eee;
+        border-radius: 20px;
+        padding: 0 30px 0 20px;
+        font-size: 14px;
+        transition: width 0.3s ease-in;
+    }
+    nav .nav-list .search form .search-btn{
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 4px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+    }
+    nav .nav-list .search form a.active{
+        background-color: #969696;
+        display: block;
+        border-radius: 50%;
+        color: white!important;
+    }
+    nav .nav-list .search form a.search-btn i{
+        font-size: 18px;
+        right:6px;
+        top:7px;
+    }
+    nav .nav-list .search form input:focus{
+        width: 320px;
+    }
+    nav .nav-list .search form  a i{
+        position: absolute;
+        right:10px;
+        top:10px;
+    }
+    @media (max-width:768px){
         nav .nav-list{
             display: none;
         }
@@ -381,7 +381,7 @@
             width: 160px;
         }
         nav .nav-list .search form input:focus{
-            width: 240px;
+            width:240px;
         }
     }
     @media(max-width: 1080px){
@@ -392,12 +392,11 @@
             display: none;
         }
         nav .nav-list .search form input{
-            width: 160px;
+            width: 150px;
         }
         nav .nav-list .search form input:focus{
-            width: 160px;
+            width: 150px;
         }
     }
-
 </style>
 
