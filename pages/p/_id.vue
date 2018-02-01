@@ -1,7 +1,7 @@
 <template>
     <div>
         <my-header></my-header>
-        <div class="note">
+        <div class="note" >
             <!--文章区域-->
             <div class="post">
                 <!--正文-->
@@ -9,7 +9,7 @@
                     <h1 class="title">月薪三千,就该去死吗？</h1>
                     <div class="author">
                         <nuxt-link class="avatar" to="/u/123">
-                            <img src="~/assets/img/1.jpg" alt="">
+                            <img src="../../assets/img/1.jpg" alt="">
                         </nuxt-link>
                         <div class="info">
                             <span class="name">测试用户</span>
@@ -198,10 +198,54 @@
                         <div class="signature">
                             为城市里的不安和孤寂发声。
 
-                            微信公众号：得及
+                            微信公众号：懒猫
+                        </div>
+                    </div>
+                    <div class="meta-bottom">
+                        <div class="like">
+                            <div class="btn like-group" :class="{btnlike:chang}">
+                                <div class="btn-like"  @click="hearts">
+                                    <a href="javascript:void (0)" :class="{btna:chang}">
+                                        <i class="fa" ref="heart" :class="{hear:chang}"></i>
+                                        <span>喜欢</span>
+                                    </a>
+                                </div>
+                                <div class="modal-wrap" :class="{modals:chang}">
+                                    <a ref="count">34</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="share-group">
+
+                             <a href="javascript:void(0)" class="sharea" v-b-tooltip.hover title="分享到微博">
+                                    <i class="fa fa-weibo"></i>
+                             </a>
+
+                             <a href="javascript:void(0)" class="sharea" v-b-tooltip.hover title="分享到微信">
+                                    <i class="fa fa-weixin"></i>
+                             </a>
+
+                            <a href="javascript:void(0)" class="sharea" v-b-tooltip.hover title="分享到QQ">
+                                    <i class="fa fa-qq"></i>
+                            </a>
+
+                            <a href="javascript:void(0)" class="sharea more-share"  @focus="show=true" @blur="show=false">
+                                更多分享
+                                <div class="box"  v-if="show">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i><span>分享到QQ空间</span></li>
+                                        <li><i class="fa fa-twitter"></i><span>分享到Twitter</span></li>
+                                        <li><i class="fa fa-facebook"></i><span>分享到FaceBook</span></li>
+                                        <li><i class="fa fa-google"></i><span>分享到Google+</span></li>
+                                        <li><i class="fa fa-leaf"></i><span>分享到豆瓣&#x3000;&#x3000;</span></li>
+                                    </ul>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
+                <!--回复组件-->
+                <my-comment></my-comment>
             </div>
             <!--悬浮的操作框-->
             <div class="side-bar"></div>
@@ -213,14 +257,18 @@
 
 <script>
     import myHeader from '~/components/myHeader'
+    import myComment from '~/components/myComment'
     export default {
       components:{
-          myHeader
+          myHeader,
+          myComment
       },
         data(){
           return{
               isActive:true,
-              has:false
+              has:false,
+              chang:false,
+              show:false
           }
         },
         methods:{
@@ -249,7 +297,20 @@
                     this.$refs.orders.innerHTML = `<i class="fa fa-check"></i> 已关注`
                     this.$refs.order.innerHTML = `<i class="fa fa-check"></i> 已关注`
                 }
+            },
+            hearts:function () {
+                this.chang = !this.chang;
+                let count =  parseInt(this.$refs.count.innerHTML)
+                if( this.chang == true){
+                    this.$refs.count.innerHTML = count+1
+                    this.$refs.heart.innerHTML = `<i class="fa fa-heart"></i>`
+                }
+                if( this.chang == false){
+                    this.$refs.count.innerHTML = count-1
+                    this.$refs.heart.innerHTML = `<i class="fa fa-heart-o"></i>`
+                }
             }
+
         }
     }
 </script>
@@ -263,5 +324,38 @@
         padding: 1px 8px 1px 6px;
         border-color: #7f828b!important;
         box-shadow: none;
+    }
+    .like .btnlike{
+        background: #ea6f5a;
+    }
+    .like  .btna{
+        color:white!important;
+    }
+    .like  .modals{
+        color:white!important;
+    }
+    .box {
+        position: relative;
+        width: 150px;
+        height: 200px;
+        top: -260px;
+        right: 30px;
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 2px #ccc;
+    }
+    .box:after {
+        position: absolute;
+        display: inline-block;
+        top: 188px;
+        left: 60px;
+        width: 0;
+        height: 0;
+        content: '';
+        border-style: solid;
+        border-width: 10px;
+        border-color: #fff #fff transparent transparent;
+        transform: rotate(135deg);
+        box-shadow: 2px -2px 2px #ccc;
     }
 </style>

@@ -3,10 +3,10 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _28341424 = () => import('..\\pages\\sign-up.vue' /* webpackChunkName: "pages_sign-up" */).then(m => m.default || m)
-const _139dbdae = () => import('..\\pages\\sign-in.vue' /* webpackChunkName: "pages_sign-in" */).then(m => m.default || m)
-const _23fe423e = () => import('..\\pages\\p\\_id.vue' /* webpackChunkName: "pages_p__id" */).then(m => m.default || m)
-const _1ce75dea = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
+const _1ce75dea = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
+const _28341424 = () => import('..\\pages\\sign-up.vue' /* webpackChunkName: "pages/sign-up" */).then(m => m.default || m)
+const _139dbdae = () => import('..\\pages\\sign-in.vue' /* webpackChunkName: "pages/sign-in" */).then(m => m.default || m)
+const _23fe423e = () => import('..\\pages\\p\\_id.vue' /* webpackChunkName: "pages/p-id" */).then(m => m.default || m)
 
 
 
@@ -43,6 +43,11 @@ export function createRouter () {
     scrollBehavior,
     routes: [
 		{
+			path: "/",
+			component: _1ce75dea,
+			name: "index"
+		},
+		{
 			path: "/sign-up",
 			component: _28341424,
 			name: "sign-up"
@@ -56,15 +61,8 @@ export function createRouter () {
 			path: "/p/:id?",
 			component: _23fe423e,
 			name: "p-id"
-		},
-		{
-			path: "/",
-			component: _1ce75dea,
-			name: "index"
 		}
     ],
-    
-    
     fallback: false
   })
 }

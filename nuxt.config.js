@@ -24,6 +24,7 @@ module.exports = {
       '~/assets/css/main.css',
       '~/assets/css/normalize.css',
       '~/assets/css/font-awesome.css',
+      '~/assets/css/animate.css',
       "swiper/dist/css/swiper.css"
   ],
   /*
