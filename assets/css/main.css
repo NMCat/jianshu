@@ -53,6 +53,11 @@ ul,ol,dl {
         margin: 0 auto;
     }
 }
+@media (max-width: 750px) {
+    body{
+        overflow-x: hidden;
+    }
+}
 /*********************首页布局*****************************/
 .index{
     padding-top: 30px;
@@ -351,6 +356,11 @@ footer .icp{
     padding-top: 20px;
     padding-bottom: 40px;
 }
+@media (max-width: 785px) {
+    .note .post {
+        margin: 0 74px;
+    }
+}
 .note .post .article .title{
     font-size: 34px;
     font-weight: 700;
@@ -582,4 +592,71 @@ footer .icp{
 }
 .fa-leaf{
     color:lightgreen;
+}
+.comment-placeholder{
+    padding: 20px 0 30px 0;
+}
+.comment-placeholder .author{
+    margin-bottom: 15px;
+}
+.comment-placeholder .author .avatar{
+    background: #eaeaea;
+    border-radius: 50%;
+}
+.comment-placeholder .author .info{
+    display: inline-block;
+}
+.comment-placeholder .author .info .name{
+    width: 60px;
+    height: 15px;
+    margin-bottom:6px;
+    background: #eaeaea;
+}
+.comment-placeholder .author .info .meta{
+    background: #eaeaea;
+    width: 120px;
+    height: 12px;
+}
+.comment-placeholder .title{
+    width: 100%;
+    height: 16px;
+    background: #eaeaea;
+    margin-bottom: 8px;
+    animation: loading 1s ease-in-out infinite;
+}
+.comment-placeholder .animated-delay{
+    animation: loading 1s ease-in-out -0.5s infinite;
+}
+.comment-placeholder .tool-group{
+    font-size: 15px;
+    color: #eaeaea;
+    padding-top: 5px;
+}
+.comment-placeholder .tool-group i{
+    margin-right: 5px;
+}
+.comment-placeholder .tool-group .zan{
+    width: 40px;
+    height: 14px;
+    margin-right: 10px;
+    display: inline-block;
+    background: #eaeaea;
+}
+.comment-placeholder .tool-group .like{
+    width: 40px;
+    height: 14px;
+    margin-right: 10px;
+    display: inline-block;
+    background: #eaeaea;
+}
+@keyframes loading {
+  0% {
+    width: 60%;
+ }
+    50%{
+        width: 100%;
+    }
+    100%{
+        width: 60%;
+    }
 }

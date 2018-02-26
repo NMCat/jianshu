@@ -1,5 +1,5 @@
 .sign {
-    height:100%;
+    height:100vh;
     font-size:14px;
     text-align:center;
 }
@@ -124,10 +124,13 @@
 .sign .main .more-sign ul li.qq {
     background:#498ad5;
 }
+.sign .main .more-sign ul li i{
+    color: white!important;
+}
 .sign .main .more-sign ul li a {
     width:50px;
     height:50px;
-    line-height:50px;
+    line-height:54px;
     display:block;
 }
 .sign .main .more-sign ul li.other {
